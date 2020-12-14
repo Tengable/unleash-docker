@@ -47,6 +47,9 @@ BASE_URI_PATH: /unleash
 
 ## Which port to listen on
 PORT: 4242
+
+# JSON string, which will be decoded, and used to wait for services to be ready
+WAIT_ON: ["tcp:posgrest:5432"]
 ```
 ### Example: connecting with the node-sdk
 ```js
