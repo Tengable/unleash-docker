@@ -45,6 +45,8 @@ SHARED_SECRET: asdfasdf
 # base uri to serve the service. Useful if this is behind a reverse proxy or load balancer.
 BASE_URI_PATH: /unleash
 
+## Which port to listen on
+PORT: 4242
 ```
 ### Example: connecting with the node-sdk
 ```js
@@ -81,9 +83,9 @@ $ npm run dev
     ```bash
     $ cp docker-compose.google.example.yml docker-compose.google.yml
     ```
-2. expose port 4242 to the internet. I use [ngrok](ngrok.com)
+2. expose port 8080 to the internet. I use [ngrok](ngrok.com)
     ```bash
-    $ ngrok http 4242 # this should output something like https://20ae209752e23.ngrok.io
+    $ ngrok http 8080 # this should output something like https://20ae209752e23.ngrok.io
     ```
 3. [Create your own oauth credentials](https://console.developers.google.com/apis/credentials). use your ngrok url + '/api/auth/callback' for the callback, EG: https://20ae209752e23.ngrok.io/api/auth/callback
 4. add your oauth information to docker-compose.google.yml

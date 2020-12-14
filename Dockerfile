@@ -8,4 +8,4 @@ COPY . .
 
 EXPOSE 4242
 
-CMD node index.js
+ENTRYPOINT [ "node", "index.js"]

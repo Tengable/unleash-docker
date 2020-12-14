@@ -131,13 +131,15 @@ const options =
       }
     : {};
 
-unleash.start(options).then((instance) => {
-  console.log(
-    `Unleash started on http://localhost:${instance.app.get(
-      "port"
-    )}${baseUriPath}`
-  );
-});
+unleash
+  .start({ ...options, port: process.env.PORT || 4242 })
+  .then((instance) => {
+    console.log(
+      `Unleash started on http://localhost:${instance.app.get(
+        "port"
+      )}${baseUriPath}`
+    );
+  });
 
 function prestartAll(...callbacks) {
   return (app) => {
