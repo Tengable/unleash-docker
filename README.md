@@ -49,7 +49,7 @@ BASE_URI_PATH: /unleash
 PORT: 4242
 
 # JSON string, which will be decoded, and used to wait for services to be ready
-WAIT_ON: ["tcp:posgrest:5432"]
+WAIT_ON: ["tcp:postgres:5432"]
 ```
 ### Example: connecting with the node-sdk
 ```js

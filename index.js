@@ -2,8 +2,10 @@
 (async () => {
   if (process.env.WAIT_ON) {
     const waitOn = require("wait-on");
-    waitOn({
-      resources: JSON.parse(process.env.WAIT_ON),
+    const resources = JSON.parse(process.env.WAIT_ON);
+    console.log("waiting on", resources);
+    await waitOn({
+      resources,
     });
   }
   const { join } = require("path");
@@ -141,6 +143,8 @@
   unleash
     .start({ ...options, port: process.env.PORT || 4242 })
     .then((instance) => {
+      if (sharedSecret) console.log("Shared Secret enabled");
+      if (enableGoogleLogin) console.log("Google Login enabled");
       console.log(
         `Unleash started on http://localhost:${instance.app.get(
           "port"
