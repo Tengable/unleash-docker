@@ -144,6 +144,7 @@
     .start({ ...options, port: process.env.PORT || 4242 })
     .then((instance) => {
       if (sharedSecret) console.log("Shared Secret enabled");
+      else console.log("no shared secret");
       if (enableGoogleLogin) console.log("Google Login enabled");
       console.log(
         `Unleash started on http://localhost:${instance.app.get(
